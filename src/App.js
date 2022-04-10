@@ -171,10 +171,6 @@ const App = () => {
     });
   };
 
-  useEffect(async () => {
-    fetchUserData();
-  }, [cookie]);
-
   return (
     <>
       <ToastContainer bodyClassName={styles.ToastBody} />
