@@ -176,14 +176,10 @@ const App = () => {
       <>
         {hasInitialised ? (
           <>
-            {userData != null && (
-              <Routes>
-                {["/", "login", "signup"].map((path, index) => (
-                  <Route
-                    exact
-                    path="s/:id"
-                    element={<StorageInfoPage />}
-                  />
+            <Routes>
+              {userData != null ? (
+                <>
+                  <Route exact path="s/:id" element={<StorageInfoPage />} />
                   <Route exact path="profile/*" element={<Profile />} />
                   <Route exact path="/" element={<HomePage />} />
                 </>
