@@ -186,8 +186,34 @@ const App = () => {
                     path={path}
                     element={<LandingPage />}
                   />
-                ))}
-              </Routes>
+                  <Route exact path="profile/*" element={<Profile />} />
+                  <Route exact path="/" element={<HomePage />} />
+                </>
+              ) : (
+                <>
+                  {["/", "login", "signup"].map((path, index) => (
+                    <Route
+                      exact
+                      key={index}
+                      path={path}
+                      element={<LandingPage />}
+                    />
+                  ))}
+                </>
+              )}
+              <Route path="*" element={<ErrorPage />} />
+            </Routes>
+            {userData && (
+              <>
+                <PopUp
+                  isOpen={popupStates.bookStorage}
+                  ContentComp={
+                    <BookStorage refreshDataFunction={fetchUserData} />
+                  }
+                  closeFun={closeBookingPopup}
+                  withBorder={false}
+                />
+              </>
             )}
           </>
         ) : (
