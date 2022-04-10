@@ -201,7 +201,7 @@ const App = () => {
               )}
               <Route path="*" element={<ErrorPage />} />
             </Routes>
-            {userData && (
+            {/* {userData && (
               <>
                 <PopUp
                   isOpen={popupStates.bookStorage}
@@ -212,7 +212,7 @@ const App = () => {
                   withBorder={false}
                 />
               </>
-            )}
+            )} */}
           </>
         ) : (
           <Preloader />
