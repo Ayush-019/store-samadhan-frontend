@@ -181,9 +181,8 @@ const App = () => {
                 {["/", "login", "signup"].map((path, index) => (
                   <Route
                     exact
-                    key={index}
-                    path={path}
-                    element={<LandingPage />}
+                    path="s/:id"
+                    element={<StorageInfoPage />}
                   />
                   <Route exact path="profile/*" element={<Profile />} />
                   <Route exact path="/" element={<HomePage />} />
