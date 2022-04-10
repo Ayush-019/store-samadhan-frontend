@@ -14,3 +14,7 @@ export const GET_STORAGE_INFO_BY_ID_URL = `${STORAGE_URL}/getStorage`;
 export const ADD_REVIEW_URL = `${USER_URL}/addRating`;
 export const UPDATE_USER_DATA_URL = `${USER_URL}/updateUser`;
 export const UPDATE_STORAGE_DATA_URL = `${STORAGE_URL}/updateStorage`;
+export const INITIALIZING_BOOKING_URL = `${BOOKING_URL}/initializeBooking`;
+export const PAYMENT_VERIFICATION_URL = `${BOOKING_URL}/verifyBooking`;
+export const GET_USER_BOOKINGS_URL = `${USER_URL}/bookings`;
+export const GET_STORAGE_BOOKINGS_URL = `${STORAGE_URL}/bookings`;
