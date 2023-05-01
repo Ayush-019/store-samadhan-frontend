@@ -22,6 +22,7 @@ import notify from "../../Utils/Helpers/notifyToast";
 import { validateEmail } from "./Helpers/ValidateEmail";
 import { fetchAndSetUserData } from "./Helpers/updateState";
 import { signUpUser } from "../../Services/signInUp.service";
+import Web3 from "web3";
 
 function SignUp() {
   const location = useLocation();
@@ -65,6 +66,63 @@ function SignUp() {
         userData.pincode = parseInt(elements.Pincode.value);
         userData.aadhar = parseInt(elements.aadharcard.value);
         userData.pan = elements.PAN.value;
+
+        let isconnected = false;
+        let accountAddress = null;
+
+        if (window.ethereum) {
+          console.log("MetaMask is installed");
+          window.web3 = new Web3(window.ethereum);
+          await window.ethereum.send("eth_requestAccounts");
+          // Get account address
+          const accounts = await window.ethereum.request({
+            method: "eth_accounts",
+          });
+
+          console.log("1. From MetaMask: ", accounts[0]);
+
+          if (accounts.length > 0) {
+            accountAddress = accounts[0];
+            isconnected = true;
+          }
+        } else if (window.web3) {
+          window.web3 = new Web3(window.web3.currentProvider);
+          const accounts = await window.web3.eth.getAccounts();
+          console.log("2. From MetaMask: ", accounts[0]);
+          if (accounts.length > 0) {
+            accountAddress = accounts[0];
+            isconnected = true;
+          }
+        } else {
+          console.log(
+            "Non-Ethereum browser detected. You should consider trying MetaMask!"
+          );
+        }
+
+        if (!isconnected) {
+          notify("Please connect to metamask", "error");
+          return;
+        }
+
+        const ourAddress = "0xB46233500f2eDEaba24674e0714D344C08916ec2";
+        // Start wallet payment process
+        const amountInHash = Web3.utils.toHex(1000000);
+        try {
+          await window.ethereum.request({
+            method: "eth_sendTransaction",
+            params: [
+              {
+                from: accountAddress,
+                to: ourAddress,
+                value: amountInHash,
+              },
+            ],
+          });
+          notify("Payment Successful", "success");
+        } catch (err) {
+          notify("Payment Failed", "error");
+          return;
+        }
       }
       console.log(userData);
 

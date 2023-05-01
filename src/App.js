@@ -24,8 +24,10 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
 import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import PopUp from "./Components/_General/PopUp/PopUp";
 
-import LandingPage from "./Containers/LandingPage";
 import Preloader from "./Components/Preloader/index";
+import { UPDATE_BOOK_STORAGE_POPUP_STATE } from "./Redux/ActionTypes";
+import BookStorage from "./Components/BookStorage/index";
+import HomePage from "./Containers/HomePage";
 
 // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
