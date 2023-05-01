@@ -1,7 +1,7 @@
 // export const BASE_URL =
 //   "http://localhost:8000/api/v1";
 export const BASE_URL = "https://easy-store-backend.vercel.app/api/v1";
-export const CLOUD_URL = "https://shttps://easy-store-storage.onrender.com/images";
+export const CLOUD_URL = "https://easy-store-storage.onrender.com/images";
   // export const CLOUD_URL =
   //   "https://storesamadhan-storage.centralindia.cloudapp.azure.com/images";
 export const AUTH_URL = `${BASE_URL}/auth`;
