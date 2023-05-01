@@ -42,9 +42,9 @@ function StorageInfoInfoSec({ storageDetails }) {
           {"₹" +
             (storageDetails.pricing.data
               ? parseInt(
-                storageDetails.pricing.data
+                  storageDetails.pricing.data
                     .map((item) => {
-                      return item.price;
+                      return item?.price;
                     })
                     .reduce((acc, v, i, a) => acc + v / a.length, 0)
                 )
