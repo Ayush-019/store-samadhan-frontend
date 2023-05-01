@@ -4,7 +4,7 @@ import styles from "./Ratings.module.css";
 
 import { STAR_IMG } from "../../Utils/Constants/StaticData";
 
-function Ratings({ rating }) {
+function Ratings({ rating = 0 }) {
   return (
     <div className={styles.Wrapper}>
       <span className={styles.Rating}>
