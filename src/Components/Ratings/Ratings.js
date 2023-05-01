@@ -7,7 +7,9 @@ import { STAR_IMG } from "../../Utils/Constants/StaticData";
 function Ratings({ rating }) {
   return (
     <div className={styles.Wrapper}>
-      <span className={styles.Rating}>{rating?.toFixed(1)}</span>
+      <span className={styles.Rating}>
+        {rating && parseFloat(rating)?.toFixed(1)}
+      </span>
       <img src={STAR_IMG} alt="Star" className={styles.Star} />
     </div>
   );
