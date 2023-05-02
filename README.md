@@ -2,7 +2,7 @@
 
 ## Hosted URL
 
-https://store-samadhan.netlify.app/
+https://easy-store-5.netlify.app/
 
 
 ## Backend URL
