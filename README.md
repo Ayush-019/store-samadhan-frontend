@@ -1,4 +1,4 @@
-![Logo](https://res.cloudinary.com/connect-x/image/upload/v1649589432/Logo_j9js3h.png)
+
 
 ## Hosted URL
 
